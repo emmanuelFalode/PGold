@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pgold_wallet/core/utils/transaction_rules.dart';
 import 'package:pgold_wallet/data/models/transaction_model.dart';
@@ -133,19 +134,15 @@ class TransactionDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        final reported = await Navigator.push<bool>(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => ReportTransactionScreen(
-                              transaction: currentTransaction,
-                              store: store,
-                            ),
-                          ),
+                        final reported = await context.push<bool>(
+                          '/report-transaction',
+                          extra: currentTransaction,
                         );
 
                         if (reported == true) {
-                          // Observer rebuilds automatically.
+                          // Observer will rebuild automatically because MobX updated.
                         }
+                        if (reported == true) {}
                       },
                       child: const Text(
                         "Report Transaction",

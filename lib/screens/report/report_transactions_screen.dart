@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pgold_wallet/data/models/transaction_model.dart';
 import 'package:pgold_wallet/general_widgets/pin_dialog.dart';
 import 'package:pgold_wallet/stores/dashboard/dashboard_store.dart';
@@ -76,7 +77,7 @@ class _ReportTransactionScreenState extends State<ReportTransactionScreen> {
         ),
       );
 
-      Navigator.pop(context, true);
+      context.pop(true);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
