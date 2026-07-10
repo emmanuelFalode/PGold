@@ -140,7 +140,7 @@ With more time I would:
 - Improve UI animations.
 - Add more unit and widget tests.
 - Improve accessibility and responsive layouts.
-
+- Format currency values using proper thousand separators 
 ---
 
 ## Test PIN
